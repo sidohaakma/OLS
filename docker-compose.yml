@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  oxo:
+    image: ols:sido
+    ports:
+      - "8080:8080"
+    expose:
+     - "8080"
+  solr:
+    image: solr
+    ports:
+     - "8983:8983"
+    volumes:
+      - data:/opt/solr/server/solr/mycores
+      - ./db/solr/mapping:/myconfig
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - mycore
+  mongo:
+    image: 'bitnami/mongodb:latest'
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGODB_DATABASE=ols
+      - MONGODB_USERNAME=ols
+      - MONGODB_PASSWORD=ols
+
+volumes:
+  data:
+
