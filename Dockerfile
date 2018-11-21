@@ -1,9 +1,9 @@
 FROM tomcat:8.5
 
-ENV OLS_HOME /opt/ols
+#ENV OLS_HOME /opt/ols
 
 #ADD ols-apps/ols-config-importer/src/main/resources/ols-config.yaml ${OLS_HOME}
-ADD ols-web/src/main/resources/application.properties ${OLS_HOME}
+#ADD ols-web/src/main/resources/application.properties ${OLS_HOME}
 
 # bootstrap files
 #RUN mkdir ${OLS_HOME}/ontologies

@@ -2,15 +2,15 @@ version: '2'
 
 services:
   oxo:
-    image: ols:sido
+    image: ols
     ports:
       - "8080:8080"
     expose:
-     - "8080"
+      - "8080"
   solr:
     image: solr
     ports:
-     - "8983:8983"
+      - "8983:8983"
     volumes:
       - data:/opt/solr/server/solr/mycores
       - ./db/solr/mapping:/myconfig
@@ -19,7 +19,7 @@ services:
       - solr-precreate
       - mycore
   mongo:
-    image: 'bitnami/mongodb:latest'
+    image: bitnami/mongodb
     ports:
       - "27017:27017"
     environment:
@@ -29,4 +29,3 @@ services:
 
 volumes:
   data:
-
